@@ -40,6 +40,14 @@ curl -X POST localhost:9000/transaction/fee -H "content-type: application/json" 
 docker compose down
 ```
 
+## <span style="color: green">Tests</span>
+
+- The BDD tests are written in Gherkin under the **transaction/src/test/resources/features** folder.
+- The BDD integration tests can be found in **restserver/src/test/resources/features** folder
+
+```shell
+gradlew test
+```
 ## <span style="color: green">Architecture</span>
 
 ![restate.svg](restate.svg)
