@@ -81,7 +81,6 @@ class StepDefinitionsIT {
                 contentType(ContentType.Application.Json)
                 setBody("""{"uri": "http://host.docker.internal:$STATS_SERVICE_PORT"}""")
             }
-            println()
         }
     }
 
