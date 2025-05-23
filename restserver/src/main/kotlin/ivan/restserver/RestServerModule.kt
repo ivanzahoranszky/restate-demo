@@ -20,7 +20,7 @@ val restServerModule = module {
             }
             install(get<ValidationPluginProvider>().get())
             routing {
-                post("/fee") {
+                post("transaction/fee") {
                     get<RestHandler>().handle(call)
                 }
             }

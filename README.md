@@ -25,13 +25,14 @@ curl localhost:9070/deployments --json "{\"uri\": \"http://stats-service:8080\"}
 ### Valid request
 
 ```shell
-curl -X POST localhost:9000/fee -H "content-type: application/json" -d "{ \"transactionId\": \"ID_BOB\", \"amount\": \"10000\", \"asset\": \"USD\",\"assetType\": \"FIAT\" }"
+curl -X POST localhost:9000/transaction/fee -H "content-type: application/json" -d "{ \"transactionId\": \"ID_BOB\", \"amount\": \"10000\", \"asset\": \"USD\",\"assetType\": \"FIAT\" }"
 ```
 
 ### Bad request
 
 ```shell
-curl -X POST localhost:9000/fee -H "content-type: application/json" -d "{ \"transactionId\": \"ID_BOB\", \"amount\": \"10000\", \"asset\": \"USD\",\"assetType\": \"XXXX\" }"```
+curl -X POST localhost:9000/transaction/fee -H "content-type: application/json" -d "{ \"transactionId\": \"ID_BOB\", \"amount\": \"10000\", \"asset\": \"USD\",\"assetType\": \"XXXX\" }"
+```
 
 ## <span style="color: green">Stop</span>
 
@@ -42,6 +43,17 @@ docker compose down
 ## <span style="color: green">Architecture</span>
 
 ![restate.svg](restate.svg)
+
+### Modules
+
+- REST interface url: http://localhost:9000/transaction/fee
+- REST sever: exposes the REST interface
+- Restate server
+- transaction-service: calculates the transaction fees and calls the **stats service**
+- stats-service: service that calculates and stores statistics regarding the transactions. This is 
+an empty service to demonstrate the interservice communication.
+- Postgres DB: stores the transactions
+- Flyway: database migration tool to initialize the DB
 
 ## <span style="color: green">Possible improvements</span>
 
