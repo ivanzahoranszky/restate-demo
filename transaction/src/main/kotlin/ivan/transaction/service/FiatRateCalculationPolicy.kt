@@ -5,7 +5,7 @@ import java.math.BigDecimal
 
 class FiatRateCalculationPolicy(private val rate: BigDecimal): RateCalculationPolicy {
 
-    override fun supports(feeRequest: FeeRequest): Boolean = feeRequest.asset == "FIAT"
+    override fun supports(feeRequest: FeeRequest): Boolean = feeRequest.assetType == "FIAT"
 
     override fun rate(feeRequest: FeeRequest): BigDecimal = rate
 

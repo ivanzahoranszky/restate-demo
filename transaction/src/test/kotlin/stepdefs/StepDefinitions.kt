@@ -46,7 +46,8 @@ class StepDefinitions {
             Pair(FeeRequest(
                     transactionId = row["transaction_id"] ?: "",
                     amount = BigDecimal(row["amount"]),
-                    asset = row["asset"] as String
+                    asset = row["asset"] as String,
+                    assetType = row["asset_type"] as String
                 ),
                 BigDecimal(row["expected_rate"])
             )
