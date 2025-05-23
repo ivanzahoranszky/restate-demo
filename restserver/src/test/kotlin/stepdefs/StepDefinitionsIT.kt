@@ -73,11 +73,11 @@ class StepDefinitionsIT {
         // register the services first
         val port = restateTestContainer.getMappedPort(RestateTestContainer.DEPLOY_PORT)
         runBlocking {
-            var r = httpClient.post("http://localhost:$port/deployments") {
+            httpClient.post("http://localhost:$port/deployments") {
                 contentType(ContentType.Application.Json)
                 setBody("""{"uri": "http://host.docker.internal:$TRANSACTION_SERVICE_PORT"}""")
             }
-            r = httpClient.post("http://localhost:$port/deployments") {
+            httpClient.post("http://localhost:$port/deployments") {
                 contentType(ContentType.Application.Json)
                 setBody("""{"uri": "http://host.docker.internal:$STATS_SERVICE_PORT"}""")
             }
