@@ -31,8 +31,7 @@ curl -X POST localhost:9000/fee -H "content-type: application/json" -d "{ \"tran
 ### Bad request
 
 ```shell
-curl -X POST localhost:9000/fee -H "content-type: application/json" -d "{ \"transactionId\": \"ID_BOB\", \"amount\": \"10000\", \"asset\": \"BAD\" }"
-```
+curl -X POST localhost:9000/fee -H "content-type: application/json" -d "{ \"transactionId\": \"ID_BOB\", \"amount\": \"10000\", \"asset\": \"USD\",\"assetType\": \"XXXX\" }"```
 
 ## <span style="color: green">Stop</span>
 
