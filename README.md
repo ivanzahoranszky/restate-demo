@@ -16,8 +16,8 @@
 ```shell
 gradlew clean jibDockerBuild
 docker compose up -d
-curl localhost:9070/deployments --json "{\"uri\": \"http://transaction-service:8080\"}"
-curl localhost:9070/deployments --json "{\"uri\": \"http://stats-service:8080\"}"
+curl localhost:9070/deployments --json "{\"uri\": \"http://transaction-service:9080\"}"
+curl localhost:9070/deployments --json "{\"uri\": \"http://stats-service:9080\"}"
 ```
 
 ## <span style="color: green">Try</span>

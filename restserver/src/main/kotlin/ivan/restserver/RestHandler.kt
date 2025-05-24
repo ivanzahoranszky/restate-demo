@@ -20,10 +20,12 @@ class RestHandler(private val httpClient: HttpClient, private val config: Config
     suspend fun handle(call: RoutingCall) {
         val feeRequest = call.receive<FeeRequest>()
         logger.info("Received fee request from the REST endpoint: {}", feeRequest)
+        logger.info("Calling restate endpoint: {}, body: {}", config.restserverRestateUrl, Json.encodeToString(feeRequest))
         val response = httpClient.get(config.restserverRestateUrl) {
             contentType(ContentType.Application.Json)
             setBody(Json.encodeToString(feeRequest))
         }
+        logger.info("Response from restate: {}, {}", response.status, response.bodyAsText())
         val str = response.bodyAsText()
         val feeResponse = Json.decodeFromString<FeeRespone>(str)
         logger.info("Received fee response from backend: {}", feeResponse)

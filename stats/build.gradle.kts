@@ -65,6 +65,7 @@ jib {
     container {
         mainClass = application.mainClass.get()
         args = listOf("--enable-preview", "--add-modules=ALL-UNNAMED")
+        ports = listOf("9080")
         environment = mapOf(
             "PORT" to "8080"
         )
