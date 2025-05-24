@@ -46,7 +46,7 @@ docker compose down
 - The BDD integration tests can be found in **restserver/src/test/resources/features** folder
 
 ```shell
-gradlew test
+gradlew clean test
 ```
 ## <span style="color: green">Architecture</span>
 
