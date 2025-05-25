@@ -4,7 +4,7 @@
 > <span style="color: brown">⚠️ **The system was mainly tested on Windows. If you use other operating system most probably 
 > you have to change some things. E.g. the handling of quote characters in the command line.**</span>
 
-## <span style="color: green">Start</span>
+## <span style="color: limegreen">Start</span>
 
 <span style="color: brown">**CHECK this dependency**</span>: on Mac OS uncomment, otherwise comment it
 
@@ -20,7 +20,7 @@ curl localhost:9070/deployments --json "{\"uri\": \"http://transaction-service:9
 curl localhost:9070/deployments --json "{\"uri\": \"http://stats-service:9080\"}"
 ```
 
-## <span style="color: green">Try</span>
+## <span style="color: limegreen">Try</span>
 
 ### Valid request
 
@@ -34,13 +34,13 @@ curl -X POST localhost:9000/transaction/fee -H "content-type: application/json" 
 curl -X POST localhost:9000/transaction/fee -H "content-type: application/json" -d "{ \"transactionId\": \"ID_BOB\", \"amount\": \"10000\", \"asset\": \"USD\",\"assetType\": \"XXXX\" }"
 ```
 
-## <span style="color: green">Stop</span>
+## <span style="color: limegreen">Stop</span>
 
 ```shell
 docker compose down
 ```
 
-## <span style="color: green">Tests</span>
+## <span style="color: limegreen">Tests</span>
 
 - The BDD tests are written in Gherkin under the **transaction/src/test/resources/features** folder.
 - The BDD integration tests can be found in **restserver/src/test/resources/features** folder
@@ -48,7 +48,7 @@ docker compose down
 ```shell
 gradlew clean test
 ```
-## <span style="color: green">Architecture</span>
+## <span style="color: limegreen">Architecture</span>
 
 ![restate.svg](restate.svg)
 
@@ -63,12 +63,12 @@ an empty service to demonstrate the interservice communication.
 - Postgres DB: stores the transactions
 - Flyway: database migration tool to initialize the DB
 
-## <span style="color: green">Possible improvements</span>
+## <span style="color: limegreen">Possible improvements</span>
 
 - Async DB driver (e.g. R2DBC)
 - Improve test coverage
 
-## <span style="color: green">Useful stuff</span>
+## <span style="color: limegreen">Useful stuff</span>
 
 - https://docs.restate.dev/get_started/quickstart/
 - https://docs.restate.dev/get_started/tour?sdk=java
