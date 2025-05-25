@@ -9,6 +9,8 @@
 
 ## <span style="color: limegreen">Requirement clarification</span>
 
+**These questions should be asked from a real customer**:
+
 - What are the rules for the fee calculation?
 - Are the rules fix or they will be modified? How frequently?
 - If they can be modified who will do it? The developers (new release) or the user?
