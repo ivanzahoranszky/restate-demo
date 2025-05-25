@@ -20,6 +20,7 @@
 ```shell
 git clone git@github.com:ivanzahoranszky/restate-demo.git
 cd restate-demo
+git checkout advanced
 gradlew clean jibDockerBuild
 docker compose up -d
 curl localhost:9070/deployments --json "{\"uri\": \"http://payment-service:9080\"}"
