@@ -10,12 +10,20 @@ class ValidationPluginProvider(private val rootValidator: Validator<FeeRequest>)
 
     fun get() = createApplicationPlugin("ValidationPlugin") {
         onCall { call ->
-            val feeRequest = call.receive<FeeRequest>()
-            runCatching {
-                rootValidator.validate(feeRequest)
-                println()
-            }.onFailure {
-                call.respond(HttpStatusCode.BadRequest, it.message ?: "")
+            when (call.request.uri) {
+                "/transaction/fee" -> {
+                    val feeRequest = call.receive<FeeRequest>()
+                    runCatching {
+                        rootValidator.validate(feeRequest)
+                        println()
+                    }.onFailure {
+                        call.respond(HttpStatusCode.BadRequest, it.message ?: "")
+                    }
+                }
+                "/payment/charge" -> {
+                    // TODO
+                }
+                else -> { }
             }
         }
     }
