@@ -1,4 +1,4 @@
-package ivan.stats.service
+package ivan.payment.service
 
 import dev.restate.sdk.annotation.Workflow
 import dev.restate.sdk.kotlin.WorkflowContext
@@ -6,7 +6,9 @@ import ivan.dto.AssetType
 import ivan.dto.rest.ChargeRequest
 import ivan.dto.rest.ChargeResponse
 import ivan.dto.rest.FeeRequest
-import ivan.stats.Config
+import ivan.account.Config
+import ivan.account.service.AccountServiceClient
+import ivan.stats.service.StatsServiceClient
 import ivan.transaction.service.TransactionServiceClient
 import org.slf4j.LoggerFactory
 

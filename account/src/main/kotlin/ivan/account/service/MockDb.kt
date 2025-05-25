@@ -1,4 +1,4 @@
-package ivan.stats.service
+package ivan.account.service
 
 import java.math.BigDecimal
 import java.util.UUID

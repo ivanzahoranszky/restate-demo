@@ -1,8 +1,8 @@
-package ivan.stats
+package ivan.account
 
 import dev.restate.sdk.endpoint.Endpoint
 import dev.restate.sdk.http.vertx.RestateHttpServer
-import ivan.stats.service.AccountService
+import ivan.account.service.AccountService
 import org.koin.core.context.startKoin
 import org.koin.java.KoinJavaComponent.getKoin
 

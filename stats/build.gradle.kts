@@ -67,7 +67,7 @@ jib {
         args = listOf("--enable-preview", "--add-modules=ALL-UNNAMED")
         ports = listOf("9080")
         environment = mapOf(
-            "PORT" to "8080"
+            "PORT" to "9080"
         )
     }
 }

@@ -1,10 +1,10 @@
-package ivan.stats.service
+package ivan.account.service
 
 import dev.restate.sdk.annotation.Handler
 import dev.restate.sdk.annotation.Service
 import dev.restate.sdk.kotlin.Context
 import ivan.dto.rest.ChargeRequest
-import ivan.stats.Config
+import ivan.account.Config
 import org.slf4j.LoggerFactory
 
 @Service

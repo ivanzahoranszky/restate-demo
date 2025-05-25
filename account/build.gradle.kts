@@ -52,7 +52,7 @@ dependencies {
 }
 
 application {
-    mainClass.set("ivan.stats.AppMain")
+    mainClass.set("ivan.account.AppMain")
 }
 
 jib {
@@ -60,14 +60,14 @@ jib {
         image = "eclipse-temurin:21-jdk-alpine"
     }
     to {
-        image = "ivan/stats-service"
+        image = "ivan/account-service"
     }
     container {
         mainClass = application.mainClass.get()
         args = listOf("--enable-preview", "--add-modules=ALL-UNNAMED")
         ports = listOf("9080")
         environment = mapOf(
-            "PORT" to "8080"
+            "PORT" to "9080"
         )
     }
 }

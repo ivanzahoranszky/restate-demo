@@ -46,39 +46,58 @@ services:
       - "9070:9070"
       - "9071:9071"
 
-#  # This is the service for transaction module
-#  transaction-service:
-#    image: ivan/transaction-service
-#    restart: always
-#    ports:
-#      - "9081:9080"
-#    environment:
-#      PORT: 9080
-#      POSTGRES_URL: ${POSTGRES_URL}
-#      POSTGRES_USER: ${POSTGRES_USER}
-#      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-#      POSTGRES_DB: ${POSTGRES_DB}
-#
-#  # this is the service for stats module
-#  stats-service:
-#    image: ivan/stats-service
-#    restart: always
-#    ports:
-#      - "9082:9080"
-#    environment:
-#      PORT: 9080
-#
-#  # This is the customer facing rest endpoint in Ktor
-#  rest-server:
-#    image: ivan/rest-server
-#    restart: always
-#    ports:
-#      - "9000:9000"
-#    environment:
-#      RESTSERVER_RESTATE_URL: ${RESTSERVER_RESTATE_URL}
-#    depends_on:
-#      - transaction-service
-#      - stats-service
+  # This is the customer facing rest endpoint in Ktor
+  rest-server:
+    image: ivan/rest-server
+    restart: always
+    ports:
+      - "9000:9000"
+    environment:
+      SERVICE_TRANSACTION_RESTATE_URL: ${SERVICE_TRANSACTION_RESTATE_URL}
+      SERVICE_PAYMENT_RESTATE_URL_TEMPLATE: ${SERVICE_PAYMENT_RESTATE_URL_TEMPLATE}
+    depends_on:
+      - transaction-service
+      - stats-service
+
+  # this is the service for account module
+  payment-service:
+    image: ivan/payment-service
+    restart: always
+    ports:
+      - "9080:9080"
+    environment:
+      PORT: 9080
+
+  # this is the service for account module
+  account-service:
+    image: ivan/account-service
+    restart: always
+    ports:
+      - "9081:9080"
+    environment:
+      PORT: 9080
+
+  # This is the service for transaction module
+  transaction-service:
+    image: ivan/transaction-service
+    restart: always
+    ports:
+      - "9082:9080"
+    environment:
+      PORT: 9080
+      POSTGRES_URL: ${POSTGRES_URL}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+
+  # this is the service for stats module
+  stats-service:
+    image: ivan/stats-service
+    restart: always
+    ports:
+      - "9083:9080"
+    environment:
+      PORT: 9080
 
 volumes:
   db-data:

@@ -1,6 +1,6 @@
-package ivan.stats
+package ivan.account
 
-import ivan.stats.service.AccountService
+import ivan.account.service.AccountService
 import org.koin.dsl.module
 
 val statsServiceModule = module {

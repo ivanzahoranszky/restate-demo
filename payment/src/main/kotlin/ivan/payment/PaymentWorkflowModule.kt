@@ -1,6 +1,7 @@
-package ivan.stats
+package ivan.payment
 
-import ivan.stats.service.PaymentWorkflow
+import ivan.account.Config
+import ivan.payment.service.PaymentWorkflow
 import org.koin.dsl.module
 
 val paymentWorkflowModule = module {
