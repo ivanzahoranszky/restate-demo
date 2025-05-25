@@ -1,12 +1,26 @@
 # <span style="color: blue">Restate Demo</span>
 
-> <span style="color: red">⚠️ **The <u>main</u> branch contains the original demo you requested. This branch (<u>advanced</u>) contains an improved version of the demo with 
+> <span style="color: brown">⚠️ **The <u>main</u> branch contains the original demo you requested. This branch (<u>advanced</u>) contains an improved version of the demo with 
 > more functionality. However, it was not tested thoroughly because of lack of time.**</span>
 
 > <span style="color: brown">⚠️ **The system was mainly tested on Windows. If you use other operating system most probably 
 > you have to change some things. E.g. the handling of quote characters in the command line.**</span>
 
 
+## <span style="color: limegreen">Requirement clarification</span>
+
+- What are the rules for the fee calculation?
+- Are the rules fix or they will be modified? How frequently?
+- If they can be modified who will do it? The developers (new release) or the user?
+- Do we have many rules or only a few? -> consider using a rule engine
+- Are the rules complex or simple? -> consider using a rule engine
+- Do we need to query the stored transactions later, or we just store it for audit purposes? -> used db type (SQL, noSQL) 
+- If we need to do so what the queries are based on? Which fields? -> which columns need indexes?
+- What is the expected response time?
+- What is the expected max load on the interface?
+- Do we expect peaks or the load is uniform? -> kubernetes, autoscaling
+- What is the geographic location of the clients? -> multiple AWS regions
+- Uptime?
 
 ## <span style="color: limegreen">Start</span>
 
