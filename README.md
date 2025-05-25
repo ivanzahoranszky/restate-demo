@@ -125,7 +125,6 @@ gradlew clean test
 
 ### Modules
 
-- REST interface url: http://localhost:9000/transaction/fee
 - REST sever: exposes the REST interface
 - Restate server
 - payment service: handles payments and calls the 
