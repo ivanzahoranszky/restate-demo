@@ -148,6 +148,9 @@ an empty service to demonstrate the interservice communication.
 - Using mockito for simple unit tests
 - Much more validation
 - code cleanup (e.g. introduce constants for hardcoded strings and port numbers)
+- better commit messages
+
+
 
 ## <span style="color: limegreen">Useful stuff</span>
 
