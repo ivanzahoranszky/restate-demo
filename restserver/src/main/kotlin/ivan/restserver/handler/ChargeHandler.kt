@@ -13,6 +13,7 @@ import ivan.restserver.Config
 import kotlinx.serialization.json.Json
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import java.util.UUID
 
 class ChargeHandler(private val httpClient: HttpClient, private val config: Config) {
 
@@ -21,8 +22,11 @@ class ChargeHandler(private val httpClient: HttpClient, private val config: Conf
     suspend fun handle(call: RoutingCall) {
         val chargeRequest = call.receive<ChargeRequest>()
         logger.info("Received charge request from the REST endpoint: {}", chargeRequest)
-        logger.info("Calling restate endpoint: {}, body: {}", config.paymentServiceRestateUrl, Json.Default.encodeToString(chargeRequest))
-        val response = httpClient.get(config.paymentServiceRestateUrl) {
+
+        val transactionId = UUID.randomUUID().toString()
+        val url = config.paymentServiceRestateUrlTemplate.replace("{transactionId}", transactionId)
+        logger.info("Calling restate endpoint: {}, body: {}", url, Json.Default.encodeToString(chargeRequest))
+        val response = httpClient.get(url) {
             contentType(ContentType.Application.Json)
             setBody(Json.Default.encodeToString(chargeRequest))
         }

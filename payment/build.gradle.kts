@@ -24,7 +24,10 @@ kotlin {
 
 dependencies {
     implementation(project(":common"))
-    
+    implementation(project(":account"))
+    implementation(project(":transaction"))
+    implementation(project(":stats"))
+
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion")

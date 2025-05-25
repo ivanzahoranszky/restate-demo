@@ -10,6 +10,9 @@ import java.util.UUID
 data class ChargeRequest(
 
     @Serializable(with = UUIDSerializer::class)
+    val transactionId: UUID,
+
+    @Serializable(with = UUIDSerializer::class)
     val accountId: UUID,
 
     @Serializable(with = BigDecimalSerializer::class)

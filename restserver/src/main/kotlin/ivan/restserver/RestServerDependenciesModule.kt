@@ -8,7 +8,7 @@ import ivan.dto.rest.FeeRequest
 import ivan.restserver.handler.ChargeHandler
 import ivan.restserver.handler.FeeHandler
 import ivan.restserver.validation.AmountValidator
-import ivan.restserver.validation.AssetTypeValidator
+import ivan.restserver.validation.AssetValidator
 import ivan.restserver.validation.ValidationPluginProvider
 import ivan.restserver.validation.Validator
 import org.koin.dsl.module
@@ -48,8 +48,8 @@ val restServerDependenciesModule = module {
 
     // provides the validator chain
     single<Validator<FeeRequest>> {
-        val assetTypeValidator = AssetTypeValidator(null)
-        AmountValidator(assetTypeValidator)
+        val assetValidator = AssetValidator(null)
+        AmountValidator(assetValidator)
     }
 
     single {

@@ -34,7 +34,7 @@ class FeeRepository(private val config: Config) {
             TransactionFeeTable.upsert {
                 it[TransactionFeeTable.transactionId] = transaction.transactionId
                 it[TransactionFeeTable.amount] = transaction.amount
-                it[TransactionFeeTable.assetType] = transaction.assetType
+                it[TransactionFeeTable.assetType] = transaction.assetType.name
                 it[TransactionFeeTable.asset] = transaction.asset
             }
         }
