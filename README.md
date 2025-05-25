@@ -24,6 +24,16 @@
 - What is the geographic location of the clients? -> multiple AWS regions
 - Uptime?
 
+# <span style="color: limegreen">The implemented (extended) use case</span>
+
+1. The client sends a charge request (some customer is charged for something)
+2. The payment service sends a request to the account service to update the balance
+3. The payment service sends a request to the transaction service to calculate the fee and store the transaction
+4. The payment service sends a request to the stats service to update the statistics
+5. The response is sent back to the client
+
+
+
 ## <span style="color: limegreen">Start</span>
 
 <span style="color: brown">**CHECK this dependency**</span>: on Mac OS uncomment, otherwise comment it
@@ -131,6 +141,7 @@ an empty service to demonstrate the interservice communication.
 
 ## <span style="color: limegreen">Possible improvements</span>
 
+- The DB for the account is a mock one (demo purposes). In memory and returns the same value for each customer.
 - Compensation messages (saga pattern)
 - Async DB driver (e.g. R2DBC)
 - Improve test coverage
