@@ -103,6 +103,7 @@ an empty service to demonstrate the interservice communication.
 - Async DB driver (e.g. R2DBC)
 - Improve test coverage
 - Using mockito for simple unit tests
+- Much more validation
 
 ## <span style="color: limegreen">Useful stuff</span>
 
