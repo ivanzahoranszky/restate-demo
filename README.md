@@ -51,7 +51,21 @@ curl -X POST localhost:9000/payment/charge -H "content-type: application/json" -
 curl -X POST localhost:9000/transaction/fee -H "content-type: application/json" -d "{ \"transactionId\": \"bbafe60b-455a-4e8c-a8cf-d3cbeb3af913\", \"amount\": \"10000\", \"asset\": \"XXX\",\"assetType\": \"FIAT\" }"
 ```
 
+### Check the database
 
+```shell
+docker exec -it  restate-demo-postgres-1 bash
+root@bb927eb7696a:/# psql -U ivan -d postgres
+psql (13.21 (Debian 13.21-1.pgdg120+1))
+Type "help" for help.
+
+postgres=# SELECT * FROM transactionfees;
+ id |            transaction_id            |  amount  | asset_type | asset
+----+--------------------------------------+----------+------------+-------
+ 19 | bbafe60b-455a-4e8c-a8cf-d3cbeb3af913 | 10000.00 | FIAT       | USD
+ 20 | ed6de3c7-95e2-4df0-b786-15f1b954da1c |   200.00 | FIAT       | USD
+(2 rows)
+```
 
 ## <span style="color: limegreen">Stop</span>
 
