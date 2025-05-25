@@ -115,6 +115,7 @@ an empty service to demonstrate the interservice communication.
 
 ## <span style="color: limegreen">Possible improvements</span>
 
+- Compensation messages (saga pattern)
 - Async DB driver (e.g. R2DBC)
 - Improve test coverage
 - Using mockito for simple unit tests
