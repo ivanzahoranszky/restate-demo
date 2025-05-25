@@ -1,5 +1,8 @@
 # <span style="color: blue">Restate Demo</span>
 
+> <span style="color: red">⚠️ **The <u>main</u> branch contains the original demo you requested. This branch (<u>advanced</u>) contains an improved version of the demo with 
+> more functionality. However, it was not tested thoroughly because of lack of time.**</span>
+
 > <span style="color: brown">⚠️ **The system was mainly tested on Windows. If you use other operating system most probably 
 > you have to change some things. E.g. the handling of quote characters in the command line.**</span>
 
