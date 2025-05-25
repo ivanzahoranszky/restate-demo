@@ -61,7 +61,8 @@ class StepDefinitionsIT {
         }
 
         restServerTestContainer = RestServerTestContainer().apply {
-            withEnv("RESTSERVER_RESTATE_URL", "http://host.docker.internal:${restateTestContainer.getMappedPort(8080)}/TransactionService/fee")
+            withEnv("SERVICE_TRANSACTION_RESTATE_URL", "http://host.docker.internal:${restateTestContainer.getMappedPort(8080)}/TransactionService/fee")
+            withEnv("SERVICE_PAYMENT_RESTATE_URL_TEMPLATE", "http://host.docker.internal:${restateTestContainer.getMappedPort(8080)}/PaymentWorkflow/{transactionId}/charge")
             start()
         }
 

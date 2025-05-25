@@ -67,6 +67,7 @@ docker compose down
 - The BDD integration tests can be found in **restserver/src/test/resources/features** folder
 
 ```shell
+docker compose down
 gradlew clean test
 ```
 
@@ -104,6 +105,7 @@ an empty service to demonstrate the interservice communication.
 - Improve test coverage
 - Using mockito for simple unit tests
 - Much more validation
+- code cleanup (e.g. introduce constants for hardcoded strings and port numbers)
 
 ## <span style="color: limegreen">Useful stuff</span>
 
