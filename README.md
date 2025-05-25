@@ -70,15 +70,24 @@ gradlew clean test
 
 ## <span style="color: limegreen">Architecture</span>
 
+### Overview
+
 ![restate.svg](restate.svg)
 
+### Sequence diagram
 
+![restate.svg](restate-sequence-diag.svg)
 
 ### Modules
 
 - REST interface url: http://localhost:9000/transaction/fee
 - REST sever: exposes the REST interface
 - Restate server
+- payment service: handles payments and calls the 
+  * the **account service**
+  * the **transaction service**
+  * and the **stats service**
+- account service: stores account information (balance)
 - transaction-service: calculates the transaction fees and calls the **stats service**
 - stats-service: service that calculates and stores statistics regarding the transactions. This is 
 an empty service to demonstrate the interservice communication.
