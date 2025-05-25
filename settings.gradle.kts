@@ -8,4 +8,6 @@ rootProject.name = "RestateDemo"
 include("common")
 include("transaction")
 include("stats")
+include("payment")
+include("account")
 include("restserver")

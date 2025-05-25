@@ -1,18 +1,17 @@
 package ivan.dto.rest
 
 import ivan.dto.serializer.BigDecimalSerializer
+import ivan.dto.serializer.UUIDSerializer
 import kotlinx.serialization.Serializable
 import java.math.BigDecimal
+import java.util.UUID
 
 @Serializable
-data class FeeRespone(
+data class ChargeRequest(
 
-    val transactionId: String,
-
-    @Serializable(with = BigDecimalSerializer::class)
-    val fee: BigDecimal,
+    @Serializable(with = UUIDSerializer::class)
+    val accountId: UUID,
 
     @Serializable(with = BigDecimalSerializer::class)
-    val rate: BigDecimal
-
+    val amount: BigDecimal
 )

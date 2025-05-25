@@ -7,6 +7,8 @@ import io.ktor.server.netty.*
 import io.ktor.server.plugins.contentnegotiation.*
 import io.ktor.server.plugins.doublereceive.*
 import io.ktor.server.routing.*
+import ivan.restserver.handler.ChargeHandler
+import ivan.restserver.handler.FeeHandler
 import ivan.restserver.validation.ValidationPluginProvider
 import org.koin.dsl.module
 
@@ -21,7 +23,10 @@ val restServerModule = module {
             install(get<ValidationPluginProvider>().get())
             routing {
                 post("transaction/fee") {
-                    get<RestHandler>().handle(call)
+                    get<FeeHandler>().handle(call)
+                }
+                post("payment/charge") {
+                    get<ChargeHandler>().handle(call)
                 }
             }
         }

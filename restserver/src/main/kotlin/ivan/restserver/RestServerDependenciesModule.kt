@@ -5,6 +5,8 @@ import io.ktor.client.engine.cio.*
 import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.serialization.kotlinx.json.*
 import ivan.dto.rest.FeeRequest
+import ivan.restserver.handler.ChargeHandler
+import ivan.restserver.handler.FeeHandler
 import ivan.restserver.validation.AmountValidator
 import ivan.restserver.validation.AssetTypeValidator
 import ivan.restserver.validation.ValidationPluginProvider
@@ -22,7 +24,15 @@ val restServerDependenciesModule = module {
         }
     }
 
-    single { RestHandler(
+    single {
+        FeeHandler(
+            httpClient = get(),
+            config = get()
+        )
+    }
+
+    single {
+        ChargeHandler(
             httpClient = get(),
             config = get()
         )

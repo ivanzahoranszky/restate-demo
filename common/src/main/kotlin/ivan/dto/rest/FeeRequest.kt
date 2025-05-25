@@ -1,6 +1,6 @@
 package ivan.dto.rest
 
-import ivan.dto.BigDecimalSerializer
+import ivan.dto.serializer.BigDecimalSerializer
 import kotlinx.serialization.Serializable
 import java.math.BigDecimal
 
