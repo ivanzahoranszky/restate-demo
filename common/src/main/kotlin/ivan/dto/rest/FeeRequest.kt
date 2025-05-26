@@ -1,5 +1,6 @@
 package ivan.dto.rest
 
+import ivan.dto.Asset
 import ivan.dto.AssetType
 import ivan.dto.serializer.BigDecimalSerializer
 import kotlinx.serialization.Serializable
@@ -15,6 +16,6 @@ data class FeeRequest(
 
     val assetType: AssetType,
 
-    val asset: String
+    val asset: Asset
 
 )

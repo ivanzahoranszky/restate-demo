@@ -17,4 +17,5 @@ data class ChargeRequest(
 
     @Serializable(with = BigDecimalSerializer::class)
     val amount: BigDecimal
+
 )

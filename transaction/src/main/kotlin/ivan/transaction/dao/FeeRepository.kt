@@ -35,7 +35,7 @@ class FeeRepository(private val config: Config) {
                 it[TransactionFeeTable.transactionId] = transaction.transactionId
                 it[TransactionFeeTable.amount] = transaction.amount
                 it[TransactionFeeTable.assetType] = transaction.assetType.name
-                it[TransactionFeeTable.asset] = transaction.asset
+                it[TransactionFeeTable.asset] = transaction.asset.name
             }
         }
     }

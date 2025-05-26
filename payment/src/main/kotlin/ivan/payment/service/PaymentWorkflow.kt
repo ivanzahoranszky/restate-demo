@@ -11,6 +11,7 @@ import ivan.account.service.AccountServiceClient
 import ivan.stats.service.StatsServiceClient
 import ivan.transaction.service.TransactionServiceClient
 import org.slf4j.LoggerFactory
+import ivan.dto.Asset.*
 
 @Workflow
 class PaymentWorkflow(private val config: Config) {
@@ -24,7 +25,7 @@ class PaymentWorkflow(private val config: Config) {
         val feeRequest = FeeRequest(
             transactionId = chargeRequest.transactionId.toString(),
             amount = chargeRequest.amount,
-            asset = "USD",
+            asset = USD,
             assetType = AssetType.FIAT
         )
 
