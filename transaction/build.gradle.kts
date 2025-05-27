@@ -53,7 +53,7 @@ dependencies {
 }
 
 application {
-    mainClass.set("ivan.transaction.AppMain")
+    mainClass.set("ivan.transaction.AppMainKt")
 }
 
 jib {

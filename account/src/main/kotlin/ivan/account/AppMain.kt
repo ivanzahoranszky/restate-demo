@@ -6,17 +6,14 @@ import ivan.account.service.AccountService
 import org.koin.core.context.startKoin
 import org.koin.java.KoinJavaComponent.getKoin
 
-object AppMain {
+fun main() {
 
-    @JvmStatic
-    fun main(args: Array<String>) {
-        startKoin { modules(statsServiceModule) }
+    startKoin { modules(statsServiceModule) }
 
-        val statsService = getKoin().get<AccountService>()
-        RestateHttpServer.listen(
-            Endpoint
-                .bind(statsService)
-        )
-    }
+    val statsService = getKoin().get<AccountService>()
+    RestateHttpServer.listen(
+        Endpoint
+            .bind(statsService)
+    )
 
 }

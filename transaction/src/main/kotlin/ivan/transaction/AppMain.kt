@@ -6,19 +6,14 @@ import ivan.transaction.service.TransactionService
 import org.koin.core.context.startKoin
 import org.koin.java.KoinJavaComponent.getKoin
 
-object AppMain {
+fun main() {
 
-    @JvmStatic
-    fun main(args: Array<String>) {
+    startKoin { modules(transactionServiceModule) }
 
-        startKoin { modules(transactionServiceModule) }
-
-        val transactionService = getKoin().get<TransactionService>()
-        RestateHttpServer.listen(
-            Endpoint
-                .bind(transactionService)
-        )
-
-    }
+    val transactionService = getKoin().get<TransactionService>()
+    RestateHttpServer.listen(
+        Endpoint
+            .bind(transactionService)
+    )
 
 }

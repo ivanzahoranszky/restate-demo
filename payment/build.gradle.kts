@@ -55,7 +55,7 @@ dependencies {
 }
 
 application {
-    mainClass.set("ivan.payment.AppMain")
+    mainClass.set("ivan.payment.AppMainKt")
 }
 
 jib {

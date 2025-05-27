@@ -52,7 +52,7 @@ dependencies {
 }
 
 application {
-    mainClass.set("ivan.account.AppMain")
+    mainClass.set("ivan.account.AppMainKt")
 }
 
 jib {

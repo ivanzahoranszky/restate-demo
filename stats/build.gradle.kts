@@ -52,7 +52,7 @@ dependencies {
 }
 
 application {
-    mainClass.set("ivan.stats.AppMain")
+    mainClass.set("ivan.stats.AppMainKt")
 }
 
 jib {

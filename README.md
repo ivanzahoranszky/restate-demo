@@ -71,12 +71,6 @@ or
 curl -X POST localhost:9000/payment/charge -H "content-type: application/json" -d "{ \"accountId\": \"ed6de3c7-95e2-4df0-b786-15f1b954da1c\", \"transactionId\": \"ed6de3c7-95e2-4df0-b786-15f1b954da1c\", \"amount\": \"200\" }"
 ````
 
-### Bad request
-
-```shell
-curl -X POST localhost:9000/transaction/fee -H "content-type: application/json" -d "{ \"transactionId\": \"bbafe60b-455a-4e8c-a8cf-d3cbeb3af913\", \"amount\": \"10000\", \"asset\": \"XXX\",\"assetType\": \"FIAT\" }"
-```
-
 ### Check the database
 
 ```shell

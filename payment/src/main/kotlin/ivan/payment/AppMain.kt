@@ -6,17 +6,14 @@ import ivan.payment.service.PaymentWorkflow
 import org.koin.core.context.startKoin
 import org.koin.java.KoinJavaComponent.getKoin
 
-object AppMain {
+fun main() {
 
-    @JvmStatic
-    fun main(args: Array<String>) {
-        startKoin { modules(paymentWorkflowModule) }
+    startKoin { modules(paymentWorkflowModule) }
 
-        val statsService = getKoin().get<PaymentWorkflow>()
-        RestateHttpServer.listen(
-            Endpoint
-                .bind(statsService)
-        )
-    }
+    val statsService = getKoin().get<PaymentWorkflow>()
+    RestateHttpServer.listen(
+        Endpoint
+            .bind(statsService)
+    )
 
 }
