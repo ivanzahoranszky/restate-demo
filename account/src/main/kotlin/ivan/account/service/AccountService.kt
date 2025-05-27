@@ -14,6 +14,7 @@ class AccountService(private val config: Config) {
 
     @Handler
     fun changeBalance(ctx: Context, chargeRequest: ChargeRequest) {
+        logger.info("Changing balance of account ${chargeRequest.accountId} by ${chargeRequest.amount}")
         MockDb.change(chargeRequest.accountId, chargeRequest.amount)
     }
 

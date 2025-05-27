@@ -6,6 +6,8 @@ import io.cucumber.java.Before
 import io.cucumber.java.en.Given
 import io.cucumber.java.en.Then
 import io.cucumber.java.en.When
+import ivan.dto.Asset
+import ivan.dto.AssetType
 import ivan.dto.rest.FeeRequest
 import ivan.transaction.service.RateCalculator
 import org.junit.Assert.*
@@ -46,8 +48,8 @@ class StepDefinitions {
             Pair(FeeRequest(
                     transactionId = row["transaction_id"] ?: "",
                     amount = BigDecimal(row["amount"]),
-                    asset = row["asset"] as String,
-                    assetType = row["asset_type"] as String
+                    asset = Asset.valueOf(row["asset"] as String),
+                    assetType = AssetType.valueOf(row["asset_type"] as String)
                 ),
                 BigDecimal(row["expected_rate"])
             )

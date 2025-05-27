@@ -65,11 +65,33 @@ curl localhost:9070/deployments --json "{\"uri\": \"http://stats-service:9080\"}
 curl -X POST localhost:9000/transaction/fee -H "content-type: application/json" -d "{ \"transactionId\": \"bbafe60b-455a-4e8c-a8cf-d3cbeb3af913\", \"amount\": \"10000\", \"asset\": \"USD\",\"assetType\": \"FIAT\" }"
 ```
 
-or
+### Invalid request
 
 ```shell
-curl -X POST localhost:9000/payment/charge -H "content-type: application/json" -d "{ \"accountId\": \"ed6de3c7-95e2-4df0-b786-15f1b954da1c\", \"transactionId\": \"ed6de3c7-95e2-4df0-b786-15f1b954da1c\", \"amount\": \"200\" }"
+curl -X POST localhost:9000/transaction/fee -H "content-type: application/json" -d "{ \"transactionId\": \"bbafe60b-455a-4e8c-a8cf-d3cbeb3af913\", \"amount\": \"10000\", \"asset\": \"XXX\",\"assetType\": \"FIAT\" }"
+```
+
+or
+
+existing accounts in the mock in-memory database:
+
+```shell
+ed6de3c7-95e2-4df0-b786-15f1b954da1c
+b026ee11-e4be-40bf-9cee-4a2227534547
+ddfe1edc-f7a7-464a-a362-4da98dc711ce
+```
+
+### Valid request
+
+```shell
+curl -X POST localhost:9000/payment/charge -H "content-type: application/json" -d "{ \"accountId\": \"ed6de3c7-95e2-4df0-b786-15f1b954da1c\", \"transactionId\": \"aec11b4e-42ff-4347-81cc-84deced374c6\", \"amount\": \"20000\" }"
 ````
+
+### Invalid request
+
+```shell
+curl -X POST localhost:9000/payment/charge -H "content-type: application/json" -d "{ \"accountId\": \"ed6de3c7-95e2-4df0-b786-15f1b954da1c\", \"transactionId\": \"aec11b4e-42ff-4347-81cc-84deced374c6\", \"amount\": \"-20000\" }"
+```
 
 ### Check the database
 
@@ -134,7 +156,7 @@ an empty service to demonstrate the interservice communication.
 
 ## <span style="color: limegreen">Possible improvements</span>
 
-- The DB for the account is a mock one (demo purposes). In memory and returns the same value for each customer.
+- The DB for the account is a fake one (for demo purposes)
 - Compensation messages (saga pattern)
 - Async DB driver (e.g. R2DBC)
 - Improve test coverage

@@ -17,13 +17,6 @@ val restServerDependenciesModule = module {
 
     single { Config() }
 
-    single { HttpClient(CIO) {
-            install(ContentNegotiation) {
-                json()
-            }
-        }
-    }
-
     single {
         FeeHandler(
             httpClient = get(),

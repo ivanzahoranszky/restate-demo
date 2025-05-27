@@ -6,7 +6,7 @@ class AssetValidator(private val nextValidator: Validator<FeeRequest>?): Validat
 
     override suspend fun validate(toBeValidated: FeeRequest) {
         if (toBeValidated.asset !in toBeValidated.assetType.assets) {
-            throw ValidationException("Asset type ${toBeValidated.assetType} is " +
+            throw ValidationException("Asset type ${toBeValidated.asset} is " +
                     "not one of the valid assets ${toBeValidated.assetType.assets}")
         }
         nextValidator?.validate(toBeValidated)

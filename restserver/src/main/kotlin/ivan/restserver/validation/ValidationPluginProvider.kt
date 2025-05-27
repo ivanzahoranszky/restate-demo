@@ -5,18 +5,22 @@ import io.ktor.server.application.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import ivan.dto.rest.FeeRequest
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 
 class ValidationPluginProvider(private val rootValidator: Validator<FeeRequest>) {
+
+    val logger: Logger = LoggerFactory.getLogger(this.javaClass.name)
 
     fun get() = createApplicationPlugin("ValidationPlugin") {
         onCall { call ->
             when (call.request.uri) {
                 "/transaction/fee" -> {
-                    val feeRequest = call.receive<FeeRequest>()
                     runCatching {
+                        val feeRequest = call.receive<FeeRequest>()
                         rootValidator.validate(feeRequest)
-                        println()
                     }.onFailure {
+                        logger.error(it.message ?: "Unknown error")
                         call.respond(HttpStatusCode.BadRequest, it.message ?: "")
                     }
                 }
